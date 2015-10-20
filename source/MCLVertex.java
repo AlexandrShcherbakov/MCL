@@ -12,7 +12,7 @@ import java.io.*;
 import com.diogenes.mcl;
 
 
-public class MCLVertex extends Vertex<IntWritable, NullWritable, FloatWritable> {
+public class MCLVertex implements Vertex<IntWritable, NullWritable, FloatWritable> {
 
 	@Override
 	public void compute(Iterable<IdAndWeightWritable> messages) throws IOException {
