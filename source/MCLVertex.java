@@ -60,4 +60,9 @@ public class MCLVertex implements Vertex<IntWritable, NullWritable, FloatWritabl
 			}
 		}
 	}
+
+	@Override
+	public bool isHalted() {
+		return false;
+	}
 }
