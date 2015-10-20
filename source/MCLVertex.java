@@ -1,7 +1,7 @@
-package com.lesandr.mcl;
+package com.diogenes.mcl;
 
-import org.apache.giraph.edge.Edge;
-import org.apache.giraph.graph.Vertex;
+import org.apache.giraph.edge.*;
+import org.apache.giraph.graph.*;
 import org.apache.giraph.utils.MathUtils;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -9,6 +9,7 @@ import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.WritableComparable;
 import java.util.*;
 import java.io.*;
+import com.diogenes.mcl;
 
 
 public class MCLVertex extends Vertex<IntWritable, NullWritable, FloatWritable> {

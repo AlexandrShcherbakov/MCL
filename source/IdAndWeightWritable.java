@@ -1,3 +1,16 @@
+package com.diogenes.mcl;
+
+import org.apache.giraph.edge.*;
+import org.apache.giraph.graph.*;
+import org.apache.giraph.utils.MathUtils;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.WritableComparable;
+import java.util.*;
+import java.io.*;
+
+
 public class IdAndWeightWritable implements WritableComparable {
 	private int id;
 	private float weight;
