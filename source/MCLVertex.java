@@ -12,10 +12,11 @@ import java.io.*;
 import com.diogenes.mcl;
 
 
-public class MCLVertex implements Vertex<IntWritable, NullWritable, FloatWritable> {
+public class MCLVertex implements BasicComputation<IntWritable, NullWritable, FloatWritable, IdAndWeightWritable> {
 
 	@Override
-	public void compute(Iterable<IdAndWeightWritable> messages) throws IOException {
+	public void compute(Vertex<IntWritable, NullWritable, FloatWritable> vertex,
+		Iterable<IdAndWeightWritable> messages) throws IOException {
 		if (getSuperstep() % 7 == 0) { 
 			//Aggregate information about graph to check for terminate state
 			
@@ -48,7 +49,7 @@ public class MCLVertex implements Vertex<IntWritable, NullWritable, FloatWritabl
 
 				// Send edges from start vertex of path
 				for (DefaultEdge edge: getEdges()) { // Loop output edges
-					sendMessage(getId(), new IdAndWeightWritable(getId(), edge.getValue())); // Send message to target vertexes of output edges
+					sendMessage(vertex.getId(), new IdAndWeightWritable(vertex.getId(), edge.getValue())); // Send message to target vertexes of output edges
 				}
 			} else {
 				//Send full path to start vertex of this path

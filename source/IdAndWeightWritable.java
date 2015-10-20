@@ -15,6 +15,14 @@ public class IdAndWeightWritable implements WritableComparable {
 	private int id;
 	private float weight;
 
+	public IdAndWeightWritable() {
+	}
+
+	public IdAndWeightWritable(int id, float weight) {
+		this.id = id;
+		this.weight = weight;
+	}
+
 	public void write(DataOutput out) throws IOException {
 		out.writeInt(id);
 		out.writeFloat(weight);
@@ -25,17 +33,8 @@ public class IdAndWeightWritable implements WritableComparable {
 		weight = in.readFloat();
 	}
 
-	public int compareTo(IdAndWeightWritable o) {
-		return id < o.id ? -1 : (id == o.id ? 0 : 1);
-	}
-
-	
-	public IdAndWeightWritable() {
-	}
-
-	public IdAndWeightWritable(int id, float weight) {
-		this.id = id;
-		this.weight = weight;
+	public int compareTo(Object o) {
+		return id < (IdAndWeightWritable)o.id ? -1 : (id == (IdAndWeightWritable)o.id ? 0 : 1);
 	}
 
 	public int hashCode() {
