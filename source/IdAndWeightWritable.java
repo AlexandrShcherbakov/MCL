@@ -33,8 +33,9 @@ public class IdAndWeightWritable implements WritableComparable {
 		weight = in.readFloat();
 	}
 
-	public int compareTo(Object o) {
-		return id < (IdAndWeightWritable)o.id ? -1 : (id == (IdAndWeightWritable)o.id ? 0 : 1);
+	public int compareTo(Object oo) {
+		IdAndWeightWritable o = (IdAndWeightWritable) oo;
+		return id < o.id ? -1 : (id == o.id ? 0 : 1);
 	}
 
 	public int hashCode() {
